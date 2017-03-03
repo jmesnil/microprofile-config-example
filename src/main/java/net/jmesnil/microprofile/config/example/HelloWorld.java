@@ -17,11 +17,11 @@
 
 package net.jmesnil.microprofile.config.example;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.eclipse.microprofile.config.Config;
-import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 
 /**
@@ -34,10 +34,14 @@ import org.eclipse.microprofile.config.spi.ConfigSource;
 
 @Path("/")
 public class HelloWorld {
+
+    @Inject
+    Config config;
+
     @GET
     @Path("/all")
     public String getAllProperties() {
-        Config config = ConfigProvider.getConfig();
+        System.out.println("config = " + config);
         StringBuilder out = new StringBuilder();
 
         out.append("<h2>ConfigSources</h2>");

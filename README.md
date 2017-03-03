@@ -4,6 +4,14 @@ This project defines a Web app that uses the Eclipse Microprofile Config API to 
 
 It is deployed in WildFly and uses its microprofile-config Susbystem extension.
 
+The Web app uses CDI to inject the configuration:
+
+````
+@Inject
+Config config;
+
+````
+
 # Instructions
 
 To run the example, you need:
@@ -21,5 +29,4 @@ They include:
  * environment properties
  * System properties
  * Properties from the [src/main/resources/META-INF/microprofile-config.properties](src/main/resources/META-INF/microprofile-config.properties) file
-
 
